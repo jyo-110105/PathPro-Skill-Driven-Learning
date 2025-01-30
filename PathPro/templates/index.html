@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathPro-Skill Driven Learning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>PathPro-Skill Driven Learning</h1>
+
+        <h2>Select Interested Subjects</h2>
+        <form action="/view_jobs" method="POST">
+            <select name="subject" required>
+                <option value="">Select a subject</option>
+                {% for subject in subjects %}
+                    <option value="{{ subject }}">{{ subject }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">View Job Roles</button>
+        </form>
+
+        {% if selected_subject %}
+            <h2>Job Roles in {{ selected_subject }}</h2>
+            <div class="job-roles">
+                {% if roles %}
+                    {% for role in roles %}
+                        <div class="role">
+                            <a href="{{ url_for('job_details', role=role) }}">{{ role }}</a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No job roles available for this subject.</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Chat Assistant -->
+    <div id="chat-assistant">
+        <!-- Small Floating Button -->
+        <div id="chat-toggle" onclick="toggleChat()">💬</div>
+
+        <!-- Collapsible Chat Window -->
+        <div id="chat-container" style="display: none;">
+            <div id="chat-box">
+                <div id="messages"></div>
+                <form id="chat-form">
+                    <input type="text" id="chat-input" placeholder="Ask me anything..." required>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle Chat Window
+        function toggleChat() {
+            const chatContainer = document.getElementById('chat-container');
+            chatContainer.style.display = chatContainer.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Chat Form Submission
+        const form = document.getElementById('chat-form');
+        const input = document.getElementById('chat-input');
+        const messages = document.getElementById('messages');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const userMessage = input.value;
+            const userMsgElement = document.createElement('div');
+            userMsgElement.textContent = `You: ${userMessage}`;
+            messages.appendChild(userMsgElement);
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userMessage })
+            });
+
+            const data = await response.json();
+            const botMsgElement = document.createElement('div');
+            botMsgElement.textContent = `AI: ${data.response}`;
+            messages.appendChild(botMsgElement);
+
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+        });
+    </script>
+</body>
+</html>

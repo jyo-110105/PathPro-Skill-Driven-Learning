@@ -1,0 +1,497 @@
+/* Resetting base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #000000, #000000); /* Gradient background */
+    color: #000000;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    animation: fadeInBackground 2s ease-out;
+}
+
+/* Main container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    color: #222;
+    animation: slideIn 1s ease-out;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: fadeInText 2s ease-in-out;
+}
+
+/* Heading Style */
+h2, h3 {
+    font-size: 1.8rem;
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #555;
+}
+
+/* Universal Button Style */
+button, .role a, a {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(145deg, #1e1e2f, #353555); /* Gradient background */
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px; /* Rounded shape */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+button:hover, .role a:hover, a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
+
+button:focus, .role a:focus, a:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(2, 45, 75, 0.6);
+}
+
+/* Styling the Select Subject Dropdown */
+select {
+    width: 100%; /* Full width */
+    padding: 14px;
+    border-radius: 50px; /* Rounded edges */
+    border: 2px solid #ddd;
+    background: linear-gradient(145deg, #1e1e2f, #353555); /* Gradient background */
+    color: #f7f7f7;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    appearance: none; /* Remove default dropdown arrow styling */
+}
+
+select:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(82, 182, 255, 0.6);
+}
+
+/* Dropdown Arrow Styling */
+select::after {
+    content: '▼'; /* Add custom arrow */
+    position: absolute;
+    right: 15px;
+    pointer-events: none;
+}
+
+/* View Job Roles Button Below Dropdown */
+.view-job-roles {
+    display: inline-block;
+    margin-top: 20px; /* Space below dropdown */
+    width: 100%; /* Full width */
+    padding: 12px 24px;
+    background: linear-gradient(145deg, #1e1e2f, #353555); /* Gradient */
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.view-job-roles:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
+
+.view-job-roles:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(82, 182, 255, 0.6);
+}
+
+
+/* Job Role Section */
+.job-roles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.role {
+    width: 300px; /* Wider size for a premium look */
+    background: linear-gradient(to right, #141e30, #243b55); /* Modern gradient */
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), inset 0 0 8px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: #120101;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    animation: fadeInUp 2s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.role:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), inset 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.role::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+    opacity: 0.5;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+}
+
+.role:hover::after {
+    opacity: 0.8;
+}
+
+.role a {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Skill Details (Job Role View) */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+ul li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #000000;
+    font-weight: 500;
+}
+
+a {
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 1rem;
+    color: #888;
+    margin-top: 50px;
+}
+
+footer a {
+    color: #0eb5d6;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Animation for content appearance */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInBackground {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Skill-Based Learning Paths Section */
+.skill-paths {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+    animation: fadeInUp 1.5s ease-out;
+    background-color: #000000; /* Black background for the section */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Skill Path Container */
+.skill-path {
+    width: 300px;
+    background-color: #1c1c1c; /* Dark background for each skill path */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #fff; /* White text for contrast */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.skill-path:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Skill Path Title */
+.skill-path h3 {
+    font-size: 1.8rem;
+    color: #fff; /* White color for the title */
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Skill Path Description */
+.skill-path p {
+    font-size: 1.2rem;
+    color: #ffffff; /* Light gray for the description */
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Skill Path Button (if any) */
+.skill-path button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(145deg, #1e1e2f, #353555); /* Gradient background */
+    color:#fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.skill-path button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
+
+.skill-path button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(82, 182, 255, 0.6);
+}
+#chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 1000;
+}
+
+#chat-box {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+}
+
+#messages {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+#chat-form {
+    display: flex;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+#chat-form button {
+    background: #6a11cb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#chat-form button:hover {
+    background: #2575fc;
+}
+/* Floating Chat Assistant */
+#chat-assistant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#chat-toggle {
+    width: 50px;
+    height: 50px;
+    background: #6a11cb;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.3s;
+}
+
+#chat-toggle:hover {
+    background: #2575fc;
+    transform: scale(1.1);
+}
+
+#chat-container {
+    display: none;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+#chat-box {
+    padding: 10px;
+}
+
+#messages {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+#chat-form {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+#chat-form button {
+    background: #6a11cb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#chat-form button:hover {
+    background: #2575fc;
+}

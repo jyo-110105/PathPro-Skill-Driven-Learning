@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Resetting base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #000000, #434343); /* Gradient background */
+            color: #ffffff;
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Main container */
+        .container {
+            width: 90%;
+            max-width: 400px;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            color: #222;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2575fc; /* Button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6a11cb; /* Button hover color */
+        }
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Simple validation (for demonstration purposes)
+            if (username === 'admin' && password === 'password') {
+                document.getElementById('message').innerText = 'Login successful!';
+                document.getElementById('message').style.color = 'green';
+                // Redirect or perform further actions here
+                // window.location.href = 'dashboard.html'; // Example redirect
+            } else {
+                document.getElementById('message').innerText = 'Invalid username or password.';
+                document.getElementById('message').style.color = 'red';
+                // Clear input fields after error
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+                document.getElementById('username').focus();
+            }
+        });
+    </script>
+</body>
+</html>
